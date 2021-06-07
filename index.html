@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,600;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Ping coming soon page</title>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="logo"><img src="images/logo.svg" alt="logo"></div>
+    <div class="description">
+      <h3>We are launching <span>soon!</span></h3>
+      <p>Subscribe and get notified</p>
+    </div>
+    <div class="inputs ">
+      <div class="winput">
+        <input class="input" type="email" name="email" id="email" placeholder="Your email address">
+        <p class="warning">Please provide a valid email address</p>
+      </div>
+
+      <button class="input btn" type="button">Notify Me</button>
+    </div>
+    <div class="illustration">
+      <img src="images/illustration-dashboard.png" alt="dashboard illustration">
+    </div>
+
+  </div>
+  <footer>
+    <ul>
+      <li><i class="fab fa-facebook-f"></i></li>
+      <li><i class="fab fa-twitter"></i></li>
+      <li><i class="fab fa-instagram"></i></li>
+    </ul>
+    <p>&copy; Copyright Ping. All rights reserved.</p>
+  </footer>
+  <script src="https://kit.fontawesome.com/7ea75ea0f9.js" crossorigin="anonymous"></script>
+  <script>
+    const emailid = document.getElementById('email');
+    const btn = document.querySelector('.btn');
+    const emailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let email;
+    const warn = document.querySelector('.warning');
+
+    function getEmailValue() {
+      email = document.getElementById('email').value;
+    }
+
+    function emailValidation(email) {
+      if (emailformat.test(
+          email)) {
+        alert('We will get in touch. Thank you !');
+      } else {
+        // alert("false");
+        emailid.parentNode.classList.add('show');
+      }
+    }
+
+    function removeclass() {
+      emailid.parentNode.classList.remove('show');
+    }
+    emailid.addEventListener('keypress', removeclass);
+    btn.addEventListener('click', () => {
+      getEmailValue();
+      emailValidation(email);
+    });
+  </script>
+</body>
+
+</html>
