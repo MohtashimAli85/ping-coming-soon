@@ -58,6 +58,7 @@
     function emailValidation(email) {
       if (emailformat.test(
           email)) {
+        emailid.addEventListener('keypress', removeclass);
         alert('We will get in touch. Thank you !');
       } else {
         // alert("false");
